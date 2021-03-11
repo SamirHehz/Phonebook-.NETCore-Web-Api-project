@@ -1,0 +1,98 @@
+﻿@using Imenik.ViewModels
+@model DodajVM
+
+<link rel="stylesheet" href="~/css/site.css" />
+<script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="~/lib/jquery-validation/dist/jquery.validate.min.js" defer></script>
+<script src="~/js/ValidationDodaj.js"></script>
+<script src="~/js/site.js"></script>
+
+
+@* Za validaciju forme korišten je poseban .js file, u kojem je urađena validacija *@
+@* Također, sav javascript code se nalazi u zasebnom fajlu *@
+
+<h3>Dodavanje novog kontakta</h3>
+
+<form id="Dodaj" asp-controller="Home" asp-action="Snimi">
+
+    <input type="hidden" value="@Model.KontaktId" asp-for="KontaktId" />
+
+    <div class="form-group">
+        <label>Ime</label>
+        <input class="form-control" type="text" asp-for="Ime" placeholder="Unesite Vaše ime" />
+    </div>
+
+    <div class="form-group">
+        <label>Prezime</label>
+        <input class="form-control" type="text" asp-for="Prezime" placeholder="Unesite Vaše prezime" />
+    </div>
+
+    <div class="form-group">
+        <label>Broj telefona</label>
+        <input class="form-control" type="text" asp-for="BrojTelefona" placeholder="061-111-111 ili 064-111-1111" />
+    </div>
+
+    <div class="form-group">
+        <label>Spol</label>
+        <select class="form-control" asp-items="@Model.Spolovi" asp-for="Spol" value="--Odaberite spol--"></select>
+    </div>
+
+    <div class="form-group">
+        <label>E-mail</label>
+        <input class="form-control" type="text" asp-for="Email" placeholder="Unesite Vaš E-mail" />
+    </div>
+
+    <div class="form-group">
+        <label>Drzava</label>
+        <select id="Drzave" class="form-control required" asp-items="@Model.Drzave" asp-for="DrzavaId" onchange="PrikazGradova()">
+            @*<option value="0">--Odaberite državu iz koje dolazite--</option>*@
+        </select>
+    </div>
+    <div id="Ajax">
+        <div class="form-group">
+            <label>Grad</label>
+            <select id="Gradovi" class="form-control required" asp-items="@Model.Gradovi" asp-for="GradId" value="GradId">
+                @*<option value="0">--Odaberite grad iz kojeg dolazite--</option>*@
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Datum rođenja</label>
+        <input id="Datum" class="form-control" type="date" asp-for="DatumRodjenja" placeholder="Odaberite Vaš datum rođenja" value="Now()" onchange="UpdateStarost()" />
+    </div>
+
+    <div class="form-group">
+        <label>Starost</label>
+        <input id="Starost" class="form-control" type="text" asp-for="Starost" readonly />
+    </div>
+    <div>
+        <input id="Snimi"type="submit" class="btn btn-primary" value="Snimi" />
+    </div>
+
+</form>
+
+    <button id="Cancel" onclick="Cancel();" class="btn btn-danger">Otkaži</button>
+
+<script>
+
+    //onload windowa za dodavanje novog kontakta, gradovi se pune na osnovu defaulte države u combo box-u "Države"
+    window.addEventListener('load', function () {
+
+        let DrzavaId = document.getElementById("Drzave").value;
+
+        let url = "/Home/PrikazGradova?DrzavaId=" + DrzavaId;
+
+        let zahtjev = new XMLHttpRequest();
+
+        zahtjev.onload = function () {
+
+            document.getElementById("Ajax").innerHTML = zahtjev.responseText;
+
+        };
+
+        zahtjev.open("GET", url, true);
+        zahtjev.send();
+
+    })
+
+</script>

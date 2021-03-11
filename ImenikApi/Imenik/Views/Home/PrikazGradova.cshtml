@@ -1,0 +1,10 @@
+﻿@using Imenik.ViewModels
+@model GradoviVM
+@{ Layout = null;}
+
+<div class="form-group">
+    <label>Grad</label>
+    <select id="Gradovi" class="form-control" asp-items="@Model.Gradovi" asp-for="GradId">
+        @*<option value="0">--Odaberite grad iz kojeg dolazite--</option>*@
+    </select>
+</div>

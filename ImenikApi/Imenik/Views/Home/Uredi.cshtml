@@ -1,0 +1,69 @@
+﻿@using Imenik.ViewModels
+@model DodajVM
+
+    <link rel="stylesheet" href="~/css/site.css" />
+    <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="~/lib/jquery-validation/dist/jquery.validate.min.js" defer></script>
+    <script src="~/js/ValidationUredi.js"></script>
+    <script src="~/js/site.js"></script>
+
+    @* Za validaciju forme korišten je poseban .js file, u kojem je urađena validacija *@
+    
+    <h3>Uređivanje odabranog kontakta</h3>
+
+    <form id="Uredi" asp-controller="Home" asp-action="SpasiUredjivanje">
+        <input type="hidden" value="@Model.KontaktId" asp-for="KontaktId" />
+
+        <div class="form-group">
+            <label>Ime</label>
+            <input class="form-control" type="text" asp-for="Ime" placeholder="Unesite Vaše ime" />
+        </div>
+
+        <div class="form-group">
+            <label>Prezime</label>
+            <input class="form-control" type="text" asp-for="Prezime" placeholder="Unesite Vaše prezime" />
+        </div>
+
+        <div class="form-group">
+            <label>Broj telefona u formatu: <strong>061-111-111</strong> ili <strong>064-111-1111</strong></label>
+            <input class="form-control" type="text" asp-for="BrojTelefona" placeholder="Unesite Vaš broj telefona" />
+        </div>
+
+        <div class="form-group">
+            <label>Spol</label>
+            <select class="form-control" asp-items="@Model.Spolovi" asp-for="Spol" value="--Odaberite spol--"></select>
+        </div>
+
+        <div class="form-group">
+            <label>E-mail</label>
+            <input class="form-control" type="text" asp-for="Email" placeholder="Unesite Vaš E-mail" />
+        </div>
+
+        <div class="form-group">
+            <label>Drzava</label>
+            <select id="Drzave" class="form-control required" asp-items="@Model.Drzave" asp-for="DrzavaId" onchange="PrikazGradova()">
+            </select>
+        </div>
+        <div id="Ajax">
+            <div class="form-group">
+                <label>Grad</label>
+                <select id="Gradovi" class="form-control required" asp-items="@Model.Gradovi" asp-for="GradId" value="GradId">
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Datum rođenja</label>
+            <input id="Datum" class="form-control" type="date" asp-for="DatumRodjenja" placeholder="Odaberite Vaš datum rođenja" onchange="UpdateStarost()" />
+        </div>
+
+        <div class="form-group">
+            <label>Starost</label>
+            <input id="Starost" class="form-control" type="text" asp-for="Starost" readonly />
+        </div>
+        <div>
+            <input id="Snimi" type="submit" class="btn btn-primary" value="Snimi" />
+        </div>
+
+    </form>
+
+    <button id="Cancel" onclick="window.history.back();" class="btn btn-danger">Otkaži</button>

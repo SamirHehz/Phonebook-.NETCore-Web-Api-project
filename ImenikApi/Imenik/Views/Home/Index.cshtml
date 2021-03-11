@@ -1,0 +1,80 @@
+﻿@model IEnumerable<Imenik.ViewModels.PrikazVM>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+@*View koji služi za prikaz svih postojećih kontakta u bazi *@
+<script src="~/js/site.js"></script>
+<h3 id="Naslov" >Prikaz postojećih kontakata</h3>
+
+<table class="table table-bordered">
+
+    <thead class="thead-dark">
+        <tr>
+            <th class="text-nowrap">Ime</th>
+            <th class="text-nowrap">Prezime</th>
+            <th class="text-nowrap">Broj telefona</th>
+            <th class="text-nowrap">Spol</th>
+            <th class="text-nowrap">Email</th>
+            <th class="text-nowrap">Grad</th>
+            <th class="text-nowrap">Država</th>
+            <th class="text-nowrap">Datum rođenja</th>
+            <th class="text-nowrap">Starost</th>
+            <th class="text-nowrap">Uredi</th>
+            <th class="text-nowrap">Obriši</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var s in Model)
+        {
+            <tr>
+                <td>@s.Ime</td>
+                <td>@s.Prezime</td>
+                <td>@s.BrojTelefona</td>
+                @if (s.Spol == "Muški")
+                {
+                    <td><div id="Muški" style="background-color:blue;"></div></td>
+                }
+                else
+                {
+                    <td><div id="Ženski" style="background-color:red;"></div></td>
+                }
+                <td>@s.Email</td>
+                <td>@s.Grad</td>
+                <td>@s.Drzava</td>
+                <td>@s.DatumRodjenja.ToString("dd.MM.yyyy")</td>
+                <td>@s.Starost</td>
+                <td><button onclick="Uredi(@s.KontaktId)" class="btn btn-warning">Uredi</button></td>
+                <td><button onclick="Obrisi(@s.KontaktId)" class="btn btn-danger">Obriši</button></td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+<style>
+
+    #Muški {
+        height: 25px;
+        width: 25px;
+        background-color: blue;
+        border-radius: 50%;
+        display: inline-block;
+    }
+
+    #Ženski {
+        height: 25px;
+        width: 25px;
+        background-color: red;
+        border-radius: 50%;
+        display: inline-block;
+    }
+    #Naslov
+    {
+        margin-bottom:3%;
+    }
+</style>
+
