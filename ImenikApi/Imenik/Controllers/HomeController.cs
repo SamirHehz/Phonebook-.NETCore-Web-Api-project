@@ -32,6 +32,7 @@ namespace Imenik.Controllers
         public async Task<IActionResult> Index()
         {
             List<PrikazVM> model = new List<PrikazVM>();
+
             HttpClient client = _api.Inital();
             HttpResponseMessage res = await client.GetAsync("api/imenik");
 
@@ -65,6 +66,7 @@ namespace Imenik.Controllers
 
             //Kreiranje država i popunjavanje combo box-a "Države" pomoću api-a
             List<DrzaveVM> drzave = new List<DrzaveVM>();
+
             HttpClient client = _api.Inital();
             HttpResponseMessage res = await client.GetAsync("api/Drzave");
 
@@ -121,7 +123,7 @@ namespace Imenik.Controllers
         {
             HttpClient client = _api.Inital();
 
-            var url = "/api/post?Ime=" + m.Ime + "&Prezime=" + m.Prezime + "&GradId=" + m.GradId + "&DrzavaId=" + m.DrzavaId + "&DatumRodjenja=" + m.DatumRodjenja + "&Starost=" + m.Starost + "&Spol=" + m.Spol + "&BrojTelefona=" + m.BrojTelefona + "&Email=" + m.Email;
+            var url = "/api/post?Ime=" + m.Ime + "&Prezime=" + m.Prezime + "&GradId=" + m.GradId + "&DrzavaId=" + m.DrzavaId + "&DatumRodjenja=" + m.DatumRodjenja.ToString("MM.dd.yyyy") + "&Starost=" + m.Starost + "&Spol=" + m.Spol + "&BrojTelefona=" + m.BrojTelefona + "&Email=" + m.Email;
             //odradio sam na ovaj način, budući da nikako nije htjelo da odradi sa url-om "/api/post", pa sam došao do ovoga rješenja
 
             var postTask = client.PostAsJsonAsync(url, m);
@@ -175,7 +177,7 @@ namespace Imenik.Controllers
         {
             HttpClient client = _api.Inital();
 
-            var url = "/api/put?KontaktId="+m.KontaktId+"&Ime="+m.Ime+"&GradId="+m.GradId+"&DrzavaId="+m.DrzavaId+"&DatumRodjenja="+m.DatumRodjenja+"&Spol="+m.Spol+"&Prezime="+m.Prezime+"&BrojTelefona="+m.BrojTelefona+"&Email="+m.Email+"&Starost="+m.Starost;
+            var url = "/api/put?KontaktId="+m.KontaktId+"&Ime="+m.Ime+"&GradId="+m.GradId+"&DrzavaId="+m.DrzavaId+"&DatumRodjenja="+m.DatumRodjenja.ToString("MM.dd.yyyy")+ "&Spol="+m.Spol+"&Prezime="+m.Prezime+"&BrojTelefona="+m.BrojTelefona+"&Email="+m.Email+"&Starost="+m.Starost;
             //odradio sam na ovaj način, budući da nikako nije htjelo da odradi sa url-om "/api/post", pa sam došao do ovoga rješenja
 
             var putTask = client.PutAsJsonAsync(url, m);

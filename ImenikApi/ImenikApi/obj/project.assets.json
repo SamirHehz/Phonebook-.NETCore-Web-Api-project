@@ -7393,11 +7393,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\PC\\source\\repos\\ImenikApi\\ImenikApi\\ImenikApi.csproj",
+      "projectUniqueName": "C:\\Users\\PC\\Desktop\\Phonebook\\Phonebook-.NETCore-Web-Api-project\\ImenikApi\\ImenikApi\\ImenikApi.csproj",
       "projectName": "ImenikApi",
-      "projectPath": "C:\\Users\\PC\\source\\repos\\ImenikApi\\ImenikApi\\ImenikApi.csproj",
+      "projectPath": "C:\\Users\\PC\\Desktop\\Phonebook\\Phonebook-.NETCore-Web-Api-project\\ImenikApi\\ImenikApi\\ImenikApi.csproj",
       "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\PC\\source\\repos\\ImenikApi\\ImenikApi\\obj\\",
+      "outputPath": "C:\\Users\\PC\\Desktop\\Phonebook\\Phonebook-.NETCore-Web-Api-project\\ImenikApi\\ImenikApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"

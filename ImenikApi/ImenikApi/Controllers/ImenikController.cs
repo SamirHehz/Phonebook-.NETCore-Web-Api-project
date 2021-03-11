@@ -11,9 +11,9 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace ImenikApi.Controllers
 {
-    //[Route("api/[Controller]")]
     public class ImenikController : Controller
     {
+        //konekcija na bazu
         private readonly DBContext db;
         public ImenikController(DBContext _db)
         {
@@ -25,6 +25,7 @@ namespace ImenikApi.Controllers
         [HttpGet]
         public List<PrikazVM> Get()
         {
+            //kreiranje modela te popunjavanje istog sa podacima iz baze
             List<PrikazVM> model = new List<PrikazVM>();
             foreach (var k in db.Kontakti)
             {
@@ -33,12 +34,12 @@ namespace ImenikApi.Controllers
                     Ime = k.Ime,
                     Prezime = k.Prezime,
                     BrojTelefona = k.BrojTelefona,
+                    DatumRodjenja = k.DatumRodjenja,
                     Email = k.Email,
                     Starost = k.Starost,
                     Spol = k.Spol,
                     Grad = db.Gradovi.Find(k.GradId).Naziv,
                     Drzava = k.Drzava,
-                    DatumRodjenja = k.DatumRodjenja,
                     KontaktId=k.Id
                 });
             }
@@ -50,6 +51,7 @@ namespace ImenikApi.Controllers
         [HttpGet]
         public List<DrzaveVM> GetDrzave()
         {
+            //kreiranje modela, te popunjavanje istog podacima iz baze
             List<DrzaveVM> model = new List<DrzaveVM>();
             foreach (var d in db.Drzave)
             {
@@ -104,12 +106,14 @@ namespace ImenikApi.Controllers
 
             db.Kontakti.Add(novi);
             db.SaveChanges();
+
             return Ok();
         }
         //api koji briše odabrani kontakt iz baze
         [HttpDelete("api/Obrisi/{Id}")]
         public async Task<IActionResult> Obrisi(int Id)
         {
+            //pronalaženje kontakta
             var kontakt = db.Kontakti.Find(Id);
 
             if(kontakt==null)
@@ -117,6 +121,7 @@ namespace ImenikApi.Controllers
                 return NotFound();
             }
 
+            //brisanje kontakta i spremanje promjena u bazu
             db.Kontakti.Remove(kontakt);
             await db.SaveChangesAsync();
 

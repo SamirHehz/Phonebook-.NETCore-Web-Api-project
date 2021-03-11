@@ -6136,11 +6136,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\PC\\source\\repos\\ImenikApi\\Imenik\\Imenik.csproj",
+      "projectUniqueName": "C:\\Users\\PC\\Desktop\\Phonebook\\Phonebook-.NETCore-Web-Api-project\\ImenikApi\\Imenik\\Imenik.csproj",
       "projectName": "Imenik",
-      "projectPath": "C:\\Users\\PC\\source\\repos\\ImenikApi\\Imenik\\Imenik.csproj",
+      "projectPath": "C:\\Users\\PC\\Desktop\\Phonebook\\Phonebook-.NETCore-Web-Api-project\\ImenikApi\\Imenik\\Imenik.csproj",
       "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\PC\\source\\repos\\ImenikApi\\Imenik\\obj\\",
+      "outputPath": "C:\\Users\\PC\\Desktop\\Phonebook\\Phonebook-.NETCore-Web-Api-project\\ImenikApi\\Imenik\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"

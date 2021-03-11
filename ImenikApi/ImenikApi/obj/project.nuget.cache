@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6ABNTvndxuV839B6izh1HrBtOhIY5a1Z5w+5bfMXxE/2u3b6TsnheARhTYoTvcAtJG7ONagJWGTI4Mt0Gkq4Ow==",
+  "dgSpecHash": "1kcpLaU+tHEDI1g3BHOVxuOaTBJECduraqrAKvD+oY5B6BJPk41qpRneMMdK6CwPK52ggv4EIM2o6+xyAEcOUw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\PC\\source\\repos\\ImenikApi\\ImenikApi\\ImenikApi.csproj",
+  "projectFilePath": "C:\\Users\\PC\\Desktop\\Phonebook\\Phonebook-.NETCore-Web-Api-project\\ImenikApi\\ImenikApi\\ImenikApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\PC\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.7\\microsoft.aspnet.webapi.client.5.2.7.nupkg.sha512",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7DSeEhdpXXqzig1h5owkmVuKGZJEqF0Mp+vID6L24OtfezKldn711PtW+mh7xL5QPy7y3Qu5/6iXD9sXAha1fA==",
+  "dgSpecHash": "qEqNDAwfoiX7+V8y64dz7RJ8h5CpUokswyOgT3Z+GV1nsJPiBdflOWJWTEqxPGDckWR4emjQ9JR2l3b/87GzfA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\PC\\source\\repos\\ImenikApi\\Imenik\\Imenik.csproj",
+  "projectFilePath": "C:\\Users\\PC\\Desktop\\Phonebook\\Phonebook-.NETCore-Web-Api-project\\ImenikApi\\Imenik\\Imenik.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.7\\microsoft.aspnet.webapi.client.5.2.7.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
